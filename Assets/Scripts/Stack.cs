@@ -11,7 +11,7 @@ public class Stack
     public int Count { get { return this.count; } }
     public int Size { get { return this.size; } }
 
-    public Stack(int newSize)
+    public Stack(int newSize = 5)
     {
         this.count = 0;
         this.size = newSize;

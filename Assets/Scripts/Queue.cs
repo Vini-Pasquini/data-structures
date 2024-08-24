@@ -15,7 +15,7 @@ public class Queue
     public int Front { get { return this.front; } }
     public int Rear { get { return this.rear; } }
 
-    public Queue(int newSize)
+    public Queue(int newSize = 5)
     {
         this.front = 0;
         this.rear = 0;

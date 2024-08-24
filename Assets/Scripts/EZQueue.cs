@@ -11,7 +11,7 @@ public class EZQueue
     public int Count { get { return this.count; } }
     public int Size { get { return this.size; } }
 
-    public EZQueue(int newSize)
+    public EZQueue(int newSize = 5)
     {
         this.size = newSize;
         this.memory = new int[this.size];

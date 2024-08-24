@@ -6,14 +6,13 @@ public class Logic : MonoBehaviour
 {
     private void Start()
     {
-        // quick test
-        Stack myStack = new Stack(10);
-        Debug.Log(myStack.Count);
-        myStack.Push(1);
-        Debug.Log(myStack.Count);
-        myStack.Push(2);
-        Debug.Log(myStack.Count);
-        Debug.Log(myStack.Pop());
-        Debug.Log(myStack.Count);
+        // stack test
+        Stack myStack = new Stack();
+
+        // queue test
+        Queue myQueue = new Queue();
+
+        // ez queue test
+        EZQueue myEZQueue = new EZQueue();
     }
 }
