@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stack
 {
-    private int[] array;
+    private int[] memory;
     private int count;
     private int size;
 
@@ -15,26 +15,26 @@ public class Stack
     {
         this.count = 0;
         this.size = newSize;
-        this.array = new int[this.size];
+        this.memory = new int[this.size];
     }
 
     public bool Push(int value)
     {
         if (this.count == this.size) { Debug.Log("full stack"); return false; }
-        this.array[this.count++] = value;
+        this.memory[this.count++] = value;
         return true;
     }
 
     public int Pop()
     {
         if (this.count == 0) { Debug.Assert(false, "empty stack"); return -1; }
-        return this.array[--this.count];
+        return this.memory[--this.count];
     }
 
     public int Top()
     {
         if (this.count == 0) { Debug.Assert(false, "empty stack"); return -1; }
-        return this.array[this.count - 1];
+        return this.memory[this.count - 1];
     }
 
     public bool Clear()
