@@ -51,13 +51,7 @@ public class RLQueue // Real Life Queue: move a fila toda em cada remocao, péssi
 
     public void Clear()
     {
-        this.count = 0; // todos os atributos da linha recebem o valor 0
-
-        /* Equivalente a fazer:
-         * this.rear = 0;
-         * this.front = 0;
-         * this.count = 0;
-         */
+        this.count = 0;
     }
 
     public bool isEmpty()
