@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EZQueue
+/*
+ * Real Life Queue:
+ * - imita o comportamento de uma fila real
+ * - reescreve os elementos da fila em toda remocaso
+ * - => (péssima) implementacao menos otimizada
+ */
+public class RLQueue // Real Life Queue: move a fila toda em cada remocao, péssima otimizacao
 {
     private int[] memory;
     private int count;
@@ -11,7 +17,7 @@ public class EZQueue
     public int Count { get { return this.count; } }
     public int Size { get { return this.size; } }
 
-    public EZQueue(int newSize = 5)
+    public RLQueue(int newSize = 5)
     {
         this.size = newSize;
         this.memory = new int[this.size];

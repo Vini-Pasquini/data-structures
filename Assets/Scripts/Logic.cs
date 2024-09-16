@@ -10,9 +10,9 @@ public class Logic : MonoBehaviour
         Stack myStack = new Stack();
 
         // queue test
-        Queue myQueue = new Queue();
+        OPQueue myQueue = new OPQueue();
 
         // ez queue test
-        EZQueue myEZQueue = new EZQueue();
+        RLQueue myEZQueue = new RLQueue();
     }
 }

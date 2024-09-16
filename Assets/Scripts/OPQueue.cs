@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Queue
+/*
+ * Fila Apelona:
+ * - loopa os "ponteiros" quando necessário
+ * - nao reescreve nenhum elemento, nunca
+ * - => (ótima) implementacao mais otimizada
+ */
+public class OPQueue
 {
     private int[] memory;
     private int count;
@@ -15,7 +21,7 @@ public class Queue
     public int Front { get { return this.front; } }
     public int Rear { get { return this.rear; } }
 
-    public Queue(int newSize = 5)
+    public OPQueue(int newSize = 5)
     {
         this.front = 0;
         this.rear = 0;
