@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,56 +12,87 @@ using UnityEngine;
 public class OPQueue
 {
     private int[] memory;
-    private int count;
     private int size;
+    private int count;
     private int front;
     private int rear;
 
-    public int Count { get { return this.count; } }
     public int Size { get { return this.size; } }
-    public int Front { get { return this.front; } }
-    public int Rear { get { return this.rear; } }
+    public int Count { get { return this.count; } }
 
-    public OPQueue(int newSize = 5)
+    public OPQueue(int inSize = 5)
     {
-        this.front = 0;
-        this.rear = 0;
-        this.size = newSize;
+        this.front = this.rear = this.count = 0; // todos os atributos da linha recebem o valor 0
+        this.size = inSize;
         this.memory = new int[this.size];
     }
 
     public bool Enqueue(int value)
     {
-        if (this.count == this.size) { Debug.Log("full"); return false; }
+        if (this.count == this.size)
+        {
+            return false;
+        }
         this.memory[this.rear] = value;
-        this.rear = (this.rear + 1 >= this.size ? 0 : this.rear + 1);
+        this.rear++;
+        if (this.rear == this.size)
+        {
+            this.rear = 0;
+        }
         this.count++;
         return true;
     }
 
-    public int Dequeue()
+    public int Dequeue(int valor)
     {
-        if (this.count == 0) { Debug.Assert(false, "empty"); return -1; }
+        if (this.count == 0)
+        {
+            Debug.Assert(false);
+        }
         int result = this.memory[this.front];
-        this.front = (this.front + 1 >= this.size ? 0 : this.front + 1);
+        this.front++;
+        if (this.front == this.size)
+        {
+            this.front = 0;
+        }
         this.count--;
         return result;
     }
 
     public void Clear()
     {
-        this.rear = this.front = this.count = 0;
+        this.rear = this.front = this.count = 0; // todos os atributos da linha recebem o valor 0
+        
+        /* Equivalente a fazer:
+         * this.rear = 0;
+         * this.front = 0;
+         * this.count = 0;
+         */
     }
 
     public bool isEmpty()
     {
-        if (this.count == 0) { return true; }
-        return false;
+        return this.count == 0; // expressao booleana, resulta em verdadeiro ou falso
+        
+        /* "Equivalente"
+         * if (this.count == 0)
+         * {
+         *     return true;
+         * }
+         * return false;
+         */
     }
 
     public bool isFull()
     {
-        if (this.count == this.size) { return true; }
-        return false;
+        return this.count == this.size; // expressao booleana, resulta em verdadeiro ou falso
+
+        /* "Equivalente"
+         * if (this.count == this.size)
+         * {
+         *     return true;
+         * }
+         * return false;
+         */
     }
 }
